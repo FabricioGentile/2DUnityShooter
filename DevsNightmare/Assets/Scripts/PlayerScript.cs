@@ -22,7 +22,14 @@ public class PlayerScript : MonoBehaviour
     void Update()
     { 
         Move();
-
+        if (Input.GetButtonDown("Fire1"))
+        {
+            WeaponScript weapon = GetComponent<WeaponScript>();
+            if (weapon != null)
+            {
+                weapon.Attack();
+            }
+        }
     }
 
     private void Move()
