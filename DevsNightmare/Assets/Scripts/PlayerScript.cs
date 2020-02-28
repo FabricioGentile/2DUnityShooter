@@ -31,7 +31,7 @@ public class PlayerScript : MonoBehaviour
             }
         }
     }
-
+  
     private void Move()
     {
         //Positions
@@ -42,5 +42,23 @@ public class PlayerScript : MonoBehaviour
         if (rb == null) rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(inputX * speed.x, inputY * speed.y); ;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            EnemyScript enemy = collision.gameObject.GetComponent<EnemyScript>();
+            
+            if(enemy != null)
+            {
+                HealthScript enemyHealth = enemy.GetComponent<HealthScript>();
+                if(enemyHealth != null)
+                {
+                    enemyHealth.Damage(1);
+                }
+            }
+        }
+    }
+
 
 }
