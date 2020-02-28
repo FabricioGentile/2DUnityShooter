@@ -8,9 +8,14 @@ public class SpawnEnemyScript : MonoBehaviour
 
     public float spawnRate = 2f;
 
+    private bool isPositionPlayer = false;
+
+    private Transform playerTransform;
+
     // Start is called before the first frame update
     void Start()
     {
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         InvokeRepeating("Spawn", spawnRate, spawnRate);
         
     }
@@ -23,8 +28,21 @@ public class SpawnEnemyScript : MonoBehaviour
 
     private void Spawn()
     {
+        isPositionPlayer = !isPositionPlayer;
+
+        Vector2 spawnPosition;
+
+        if (isPositionPlayer)
+        {
+            spawnPosition = new Vector2(transform.position.x, playerTransform.position.y);
+        }
+        else
+        {
+            spawnPosition = new Vector2(transform.position.x, Random.Range(8,0));
+        }
+
         var enemyTransform = Instantiate(enemyPreFab) as Transform;
 
-        enemyTransform.position = transform.position;
+        enemyTransform.position = spawnPosition;
     }
 }

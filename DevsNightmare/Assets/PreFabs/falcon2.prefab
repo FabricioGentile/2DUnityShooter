@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 6701771401123843297}
   - component: {fileID: 6701771400203135925}
   - component: {fileID: 6701771400203135922}
-  - component: {fileID: 6701771400203135924}
   - component: {fileID: 6701771400203135920}
   - component: {fileID: 2094233041}
   - component: {fileID: 2094233042}
+  - component: {fileID: 486010146}
   m_Layer: 0
   m_Name: falcon2
   m_TagString: Player
@@ -105,19 +105,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6701771400203135924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6701771400203135921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f08d5c229b2093e4092347d6867f7239, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: {x: 10, y: 10}
 --- !u!61 &6701771400203135920
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -172,3 +159,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
+--- !u!114 &486010146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6701771400203135921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f08d5c229b2093e4092347d6867f7239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: {x: 10, y: 10}

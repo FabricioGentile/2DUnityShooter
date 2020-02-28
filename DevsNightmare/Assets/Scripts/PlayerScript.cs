@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider2D))]
 public class PlayerScript : MonoBehaviour
 {
+
     //Speed of the spaceship
     public Vector2 speed = new Vector2(10, 10);
 
@@ -22,6 +24,7 @@ public class PlayerScript : MonoBehaviour
     void Update()
     { 
         Move();
+
         if (Input.GetButtonDown("Fire1"))
         {
             WeaponScript weapon = GetComponent<WeaponScript>();
@@ -30,6 +33,9 @@ public class PlayerScript : MonoBehaviour
                 weapon.Attack();
             }
         }
+
+
+
     }
   
     private void Move()
@@ -40,13 +46,15 @@ public class PlayerScript : MonoBehaviour
 
         //Move the game object
         if (rb == null) rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(inputX * speed.x, inputY * speed.y); ;
+        rb.velocity = new Vector2(inputX * speed.x, inputY * speed.y);
+
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Enemy")
         {
+            var damagePlayer = false;
             EnemyScript enemy = collision.gameObject.GetComponent<EnemyScript>();
             
             if(enemy != null)
@@ -54,7 +62,18 @@ public class PlayerScript : MonoBehaviour
                 HealthScript enemyHealth = enemy.GetComponent<HealthScript>();
                 if(enemyHealth != null)
                 {
-                    enemyHealth.Damage(1);
+                    enemyHealth.Damage(enemyHealth.hp);
+                }
+
+                damagePlayer = true;
+            }
+
+            if (damagePlayer)
+            {
+                HealthScript playerHealth = GetComponent<HealthScript>();
+                if(playerHealth != null)
+                {
+                    playerHealth.Damage(2);
                 }
             }
         }

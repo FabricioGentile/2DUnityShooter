@@ -27,7 +27,10 @@ public class MoveScript : MonoBehaviour
     {
 
         //Move the game object
-        if (rb == null) rb = GetComponent<Rigidbody2D>();
+        if (rb == null)
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
         rb.velocity = new Vector2(direction.x * speed.x, direction.y * speed.y); ;
     }
 }
