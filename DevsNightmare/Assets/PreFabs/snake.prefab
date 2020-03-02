@@ -158,6 +158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d143a81407f6b6429bdada320eb9a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionFX: {fileID: 601033345308435064, guid: 20e13e4617de46846a359aa46dbf9403,
+    type: 3}
   hp: 3
 --- !u!114 &1806669282232944101
 MonoBehaviour:
@@ -186,3 +188,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be7f50eb4acfdd14c80862547ebcea48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon: {fileID: 0}

@@ -5,12 +5,19 @@ using UnityEngine;
 public class HealthScript : MonoBehaviour
 {
 
+    [SerializeField] private GameObject explosionFX;
+    private float explosionDuration = 5.0f;
+
     public int hp = 1;
     public void Damage(int damageCount)
     {
         hp -= damageCount;
         if(hp <= 0)
         {
+            GameObject explosion = Instantiate(explosionFX,
+                                               transform.position,
+                                               transform.rotation);
+            Destroy(explosion, explosionDuration);
             Destroy(gameObject);
         }
     }
