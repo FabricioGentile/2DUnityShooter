@@ -48,6 +48,10 @@ public class PlayerScript : MonoBehaviour
         if (rb == null) rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(inputX * speed.x, inputY * speed.y);
 
+        float yValue = Mathf.Clamp(rb.position.y, -12.0f, 12.0f);
+        float xValue = Mathf.Clamp(rb.position.x, -11.0f, 28.0f);
+        rb.position = new Vector2(xValue, yValue);
+
     }
 
     void OnTriggerEnter2D(Collider2D collision)
