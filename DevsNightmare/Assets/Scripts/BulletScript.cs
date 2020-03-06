@@ -26,7 +26,7 @@ public class BulletScript : MonoBehaviour
             {
                 health.Damage(damage);
             }
-            
+            Destroy(gameObject);
         }
         
     }

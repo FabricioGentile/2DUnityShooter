@@ -2,17 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class SoundsScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private AudioSource audioSource;
+
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    // == public methods ==
+    public void PlayOneShot(AudioClip clip)
     {
-        
+        if (clip)
+        {
+            audioSource.PlayOneShot(clip);
+        }
     }
+
+    public void ToggleSounds()
+    {
+        // placeholder
+        audioSource.mute = !audioSource.mute;
+    }
+
+    public static SoundsScript FindSoundController()
+    {
+        SoundsScript sc = FindObjectOfType<SoundsScript>();
+        if (!sc)
+        {
+            Debug.LogWarning("Missing Sound Controller");
+        }
+        return sc;
+    }
+
+
 }
