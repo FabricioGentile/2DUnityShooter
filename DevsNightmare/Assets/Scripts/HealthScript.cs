@@ -16,10 +16,22 @@ public class HealthScript : MonoBehaviour
         hp -= damageCount;
         if(hp <= 0)
         {
+            switch (gameObject.tag)
+            {
+                case "Enemy1":
+                    ScoreScript.scoreValue += 10;
+                    break;
+                case "Enemy2":
+                    ScoreScript.scoreValue += 20;
+                    break;
+                default:
+                    break;
+            }
             GameObject explosion = Instantiate(explosionFX, transform.position, transform.rotation);
             Destroy(explosion, explosionDuration);
             PlaySound(dieSound);
             Destroy(gameObject);
+
         }
     }
     // Start is called before the first frame update

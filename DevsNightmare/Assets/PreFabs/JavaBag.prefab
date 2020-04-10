@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6137808756324191456}
   m_Layer: 0
   m_Name: JavaBag
-  m_TagString: Enemy
+  m_TagString: Enemy2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 4295369705736289530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.873, y: 0.861, z: 2}
-  m_LocalScale: {x: 0.486471, y: 0.526071, z: 1}
+  m_LocalScale: {x: 10, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bef448317ddab04a9fcfbc6d2415a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 5, y: 5}
+  speed: {x: 45, y: 45}
   direction: {x: -1, y: 0}
 --- !u!114 &8937550870265670980
 MonoBehaviour:

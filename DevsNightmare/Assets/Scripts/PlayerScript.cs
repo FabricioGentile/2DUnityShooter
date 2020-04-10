@@ -48,15 +48,15 @@ public class PlayerScript : MonoBehaviour
         if (rb == null) rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(inputX * speed.x, inputY * speed.y);
 
-        float yValue = Mathf.Clamp(rb.position.y, -12.0f, 12.0f);
-        float xValue = Mathf.Clamp(rb.position.x, -11.0f, 28.0f);
+        float yValue = Mathf.Clamp(rb.position.y, -70.0f, 100.0f);
+        float xValue = Mathf.Clamp(rb.position.x, -25.0f, 390.0f);
         rb.position = new Vector2(xValue, yValue);
 
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if(collision.gameObject.tag == "Enemy1" || collision.gameObject.tag == "Enemy2")
         {
             var damagePlayer = false;
             EnemyScript enemy = collision.gameObject.GetComponent<EnemyScript>();
