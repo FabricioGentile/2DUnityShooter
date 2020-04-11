@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
@@ -18,9 +19,24 @@ public class MenuScript : MonoBehaviour
         GUI.skin = newSkin;
         
         if (GUI.Button(new Rect(Screen.width/2 - (buttonWidth/2),
-                               (Screen.height/3 * 2) - (buttonWidth/2), 
+                               (Screen.height/3*2 ) - (buttonWidth/2), 
                                buttonWidth, buttonHeight), "Start!")){
-            Application.LoadLevel("Level1");
+            SceneManager.LoadScene("Level1");
+        }
+
+        Debug.Log(Screen.height);
+        if (GUI.Button(new Rect(Screen.width / 2 - (buttonWidth / 2),
+                       (Screen.height /3 * 2 + 60) - (buttonWidth / 2),
+                       buttonWidth, buttonHeight), "Options")) 
+        {
+            SceneManager.LoadScene("Menu");
+        }
+
+        if (GUI.Button(new Rect(Screen.width / 2 - (buttonWidth / 2),
+                     (Screen.height / 3 * 3 + 10) - (buttonWidth / 2),
+                     buttonWidth, buttonHeight), "Quit"))
+        {
+            Application.Quit();
         }
     }
 }
