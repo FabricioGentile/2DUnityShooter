@@ -163,6 +163,7 @@ MonoBehaviour:
   dieSound: {fileID: 8300000, guid: 2b8253c70719fea4fbf2fc6abca4d8e0, type: 3}
   explosionFX: {fileID: 601033345308435064, guid: 20e13e4617de46846a359aa46dbf9403,
     type: 3}
+  healthBar: {fileID: 0}
   hp: 3
 --- !u!114 &1806669282232944101
 MonoBehaviour:

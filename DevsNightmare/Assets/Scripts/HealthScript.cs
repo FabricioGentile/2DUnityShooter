@@ -8,13 +8,30 @@ public class HealthScript : MonoBehaviour
     [SerializeField] private GameObject explosionFX;
     private float explosionDuration = 5.0f;
     private SoundsScript sc;
-
+    public HealthBarScript healthBar;
 
     public int hp = 1;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        sc = SoundsScript.FindSoundController();
+        if (gameObject.tag == "Player")
+        {
+            healthBar.SetMaxHealth(hp);
+        }
+    
+    }
+
     public void Damage(int damageCount)
     {
         hp -= damageCount;
-        if(hp <= 0)
+        if(gameObject.tag == "Player")
+        {
+            healthBar.SetHealth(hp);
+        }
+       
+        if (hp <= 0)
         {
             switch (gameObject.tag)
             {
@@ -31,19 +48,7 @@ public class HealthScript : MonoBehaviour
             Destroy(explosion, explosionDuration);
             PlaySound(dieSound);
             Destroy(gameObject);
-
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        sc = SoundsScript.FindSoundController();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void PlaySound(AudioClip clip)

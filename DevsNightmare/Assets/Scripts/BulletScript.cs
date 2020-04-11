@@ -13,7 +13,6 @@ public class BulletScript : MonoBehaviour
     void Start()
     {
         Destroy(gameObject, 10);
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08d5c229b2093e4092347d6867f7239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
   speed: {x: 170, y: 170}
 --- !u!82 &1940641278
 AudioSource:

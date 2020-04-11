@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
 
+
     //Speed of the spaceship
     public Vector2 speed = new Vector2(10, 10);
 
@@ -17,7 +18,6 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
     }
 
     // Update is called once per frame
@@ -33,9 +33,6 @@ public class PlayerScript : MonoBehaviour
                 weapon.Attack();
             }
         }
-
-
-
     }
   
     private void Move()
@@ -77,7 +74,7 @@ public class PlayerScript : MonoBehaviour
                 HealthScript playerHealth = GetComponent<HealthScript>();
                 if(playerHealth != null)
                 {
-                    playerHealth.Damage(2);
+                    playerHealth.Damage(1);
                 }
             }
         }
