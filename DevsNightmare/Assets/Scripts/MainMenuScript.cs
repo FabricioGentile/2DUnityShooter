@@ -9,12 +9,7 @@ public class MainMenuScript : MonoBehaviour
     {
         SceneManager.LoadScene("Level1");
     }
-
-    public void HTP()
-    {
-        SceneManager.LoadScene("HowToPlay");
-    }
-
+    
     public void QuitGame()
     {
         Application.Quit();
