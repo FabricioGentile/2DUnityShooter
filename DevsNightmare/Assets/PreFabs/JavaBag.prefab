@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7925268602797467130}
   - component: {fileID: 5177999275678973633}
   - component: {fileID: 6137808756324191456}
+  - component: {fileID: -8140207391949986033}
   m_Layer: 0
   m_Name: JavaBag
   m_TagString: Enemy2
@@ -31,7 +32,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4295369705736289530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.873, y: 0.861, z: 2}
+  m_LocalPosition: {x: 0.873, y: 0.861, z: 0}
   m_LocalScale: {x: 10, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -133,9 +134,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d143a81407f6b6429bdada320eb9a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dieSound: {fileID: 0}
+  dieSound: {fileID: 8300000, guid: 81932953c5237f044991bdbe87d50218, type: 3}
   explosionFX: {fileID: 601033345308435064, guid: 20e13e4617de46846a359aa46dbf9403,
     type: 3}
+  healthBar: {fileID: 0}
   hp: 5
 --- !u!114 &7925268602797467130
 MonoBehaviour:
@@ -149,9 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b556009f6d378c24695b56bcdd6aca06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootClip: {fileID: 0}
+  shootClip: {fileID: 8300000, guid: 533259b77988a5346bcd205d855bede5, type: 3}
   shootVolume: 0.5
-  shotPrefab: {fileID: 3588837936484987305, guid: 8671a193e74b1dc4dba945b0992daa18,
+  shotPrefab: {fileID: 3163408669559163591, guid: f62c48f7b826ef04f898f16e6437e449,
     type: 3}
   shootingRate: 1.7
 --- !u!114 &5177999275678973633
@@ -193,3 +195,99 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.1504905, y: 3.84}
   m_EdgeRadius: 0
+--- !u!82 &-8140207391949986033
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4295369705736289530}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

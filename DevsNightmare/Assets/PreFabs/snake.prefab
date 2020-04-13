@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 4639668232876731123}
   - component: {fileID: 1035928702}
   - component: {fileID: 1806669282232944101}
-  - component: {fileID: 6087858709238695627}
   - component: {fileID: 8305468375671484415}
+  - component: {fileID: 6087858709238695627}
   m_Layer: 0
   m_Name: snake
   m_TagString: Enemy1
@@ -182,19 +182,6 @@ MonoBehaviour:
   shotPrefab: {fileID: 2571891683115333641, guid: f3e912139bcee6241880190434135182,
     type: 3}
   shootingRate: 2.5
---- !u!114 &6087858709238695627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4639668232876730894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7f50eb4acfdd14c80862547ebcea48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
 --- !u!82 &8305468375671484415
 AudioSource:
   m_ObjectHideFlags: 0
@@ -291,3 +278,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6087858709238695627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4639668232876730894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be7f50eb4acfdd14c80862547ebcea48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

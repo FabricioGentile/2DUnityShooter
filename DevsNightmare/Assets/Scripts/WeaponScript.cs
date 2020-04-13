@@ -34,7 +34,15 @@ public class WeaponScript : MonoBehaviour
             audioSource.PlayOneShot(shootClip, shootVolume);
             shootCoolDown = shootingRate;
             var shotTransform = Instantiate(shotPrefab) as Transform;
-            shotTransform.position = transform.position;
+            if(gameObject.tag == "Boss1")
+            {
+                shotTransform.position = new Vector3(transform.position.x - 10, transform.position.y + 25, transform.position.z);
+            }
+            else
+            {
+                shotTransform.position = transform.position;
+            }
+            
 
         }
     }

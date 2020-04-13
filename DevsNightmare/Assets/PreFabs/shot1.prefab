@@ -159,3 +159,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   objectTag: Enemy1
+  objectTag2: Boss1

@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-
- 
-    [SerializeField] private WeaponScript weapon;
+    private WeaponScript weapon;
 
     private float explosionDuration = 1.0f;
  

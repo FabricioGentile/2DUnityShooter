@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverScript : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class GameOverScript : MonoBehaviour
                                (Screen.height / 3 * 2) - (buttonWidth / 2),
                                buttonWidth, buttonHeight), "Retry"))
         {
-            Application.LoadLevel("Level1");
+            SceneManager.LoadScene("Level1");
         }
 
         //Back to menu
@@ -30,7 +31,7 @@ public class GameOverScript : MonoBehaviour
                               (Screen.height / 3 * 3) - (buttonWidth / 2),
                               buttonWidth, buttonHeight), "Menu"))
         {
-            Application.LoadLevel("Menu");
+            SceneManager.LoadScene("Menu");
         }
     }
 }

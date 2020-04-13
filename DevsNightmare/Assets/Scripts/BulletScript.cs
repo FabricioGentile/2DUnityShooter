@@ -7,7 +7,10 @@ public class BulletScript : MonoBehaviour
 {
 
     public int damage = 1;
-    public string objectTag;
+    [SerializeField]
+    private string objectTag;
+    [SerializeField]
+    private string objectTag2;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +20,7 @@ public class BulletScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == objectTag)
+        if (collider.gameObject.tag == objectTag || collider.gameObject.tag == objectTag2)
         {
             HealthScript health = collider.gameObject.GetComponent<HealthScript>();
 
@@ -27,12 +30,6 @@ public class BulletScript : MonoBehaviour
             }
             Destroy(gameObject);
         }
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 }
