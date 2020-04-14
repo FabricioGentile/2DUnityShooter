@@ -7,6 +7,8 @@ public class BossMovementScript : MonoBehaviour
     private Vector3 posA;
     private Vector3 posB;
     private Vector3 nextPos;
+    private string objTag;
+    public LevelLoaderScript lvl;
 
     [SerializeField]
     private float speed;
@@ -23,12 +25,21 @@ public class BossMovementScript : MonoBehaviour
         posA= childTransform.localPosition;
         posB = transformB.localPosition;
         nextPos = posB;
+        objTag = gameObject.tag;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if (GameObject.FindGameObjectWithTag("Boss1") != null || GameObject.FindGameObjectWithTag("Boss2") != null)
+        {
+            Move();
+        }
+        else
+        {
+            lvl.LoadNextLevel();
+        }
+        
     }
 
     private void Move()

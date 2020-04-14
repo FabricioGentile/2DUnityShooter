@@ -38,6 +38,10 @@ public class WeaponScript : MonoBehaviour
             {
                 shotTransform.position = new Vector3(transform.position.x - 10, transform.position.y + 25, transform.position.z);
             }
+            else if (gameObject.tag == "Boss2")
+            {
+                shotTransform.position = new Vector3(transform.position.x - 10, transform.position.y + 25, transform.position.z);
+            }
             else
             {
                 shotTransform.position = transform.position;

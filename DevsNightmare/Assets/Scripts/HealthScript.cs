@@ -38,8 +38,14 @@ public class HealthScript : MonoBehaviour
                 case "Enemy1":
                     ScoreScript.scoreValue += 10;
                     break;
+                case "Boss1":
+                    ScoreScript.scoreValue += 100;
+                    break;
                 case "Enemy2":
                     ScoreScript.scoreValue += 20;
+                    break;
+                case "Boss2":
+                    ScoreScript.scoreValue += 200;
                     break;
                 default:
                     break;

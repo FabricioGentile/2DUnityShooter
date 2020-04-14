@@ -80,11 +80,23 @@ public class WaveSpawnerScript : MonoBehaviour
             waveCountDown = 100000000f;
             Debug.Log("Completed all waves");
             Debug.Log("score value is : " + ScoreScript.scoreValue);
+            switch (ScoreScript.scoreValue)
+            {
+                case 50:
+                case 250:
+                    lvl.LoadNextLevel();
+                    break;
+                default:
+                    break;
+            }
+               
+
             if (ScoreScript.scoreValue == 50)
             {
                 //next level
                 lvl.LoadNextLevel();
             }
+
             else
             {
                 //gameover

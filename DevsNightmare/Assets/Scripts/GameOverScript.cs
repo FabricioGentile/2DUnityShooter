@@ -23,6 +23,7 @@ public class GameOverScript : MonoBehaviour
                                (Screen.height / 3 * 2) - (buttonWidth / 2),
                                buttonWidth, buttonHeight), "Retry"))
         {
+            ScoreScript.scoreValue = 0;
             SceneManager.LoadScene("Level1");
         }
 

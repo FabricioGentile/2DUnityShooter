@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Enemy2
   - Boss1
+  - Boss2
   layers:
   - Default
   - TransparentFX
