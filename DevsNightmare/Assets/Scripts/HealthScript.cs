@@ -14,23 +14,28 @@ public class HealthScript : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         sc = SoundsScript.FindSoundController();
-        if (gameObject.tag == "Player")
+        switch (gameObject.tag)
         {
-            healthBar.SetMaxHealth(hp);
+            //creates the health bar just for the player
+            case "Player":
+                healthBar.SetMaxHealth(hp);
+                break;
         }
-    
     }
 
     public void Damage(int damageCount)
     {
+        //take the damage from HP
         hp -= damageCount;
+        //updates the health bar
         if(gameObject.tag == "Player")
         {
             healthBar.SetHealth(hp);
         }
        
+        //if the enemy is killed, give the player the following scoring values
         if (hp <= 0)
         {
             switch (gameObject.tag)
@@ -50,6 +55,7 @@ public class HealthScript : MonoBehaviour
                 default:
                     break;
             }
+            //destroy the enemy
             GameObject explosion = Instantiate(explosionFX, transform.position, transform.rotation);
             Destroy(explosion, explosionDuration);
             PlaySound(dieSound);

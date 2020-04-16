@@ -11,6 +11,7 @@ public class WeaponScript : MonoBehaviour
     public float shootingRate = 0.25f;
     private float shootCoolDown;
     private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class WeaponScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //decreasing the time between a shoot and another
         if (shootCoolDown > 0)
         {
             shootCoolDown -= Time.deltaTime;
@@ -28,26 +30,27 @@ public class WeaponScript : MonoBehaviour
     }
 
     public void Attack()
-    {
+    { 
         if (shootCoolDown <= 0)
         {
             audioSource.PlayOneShot(shootClip, shootVolume);
+            //set a rate for the shoot of the enemy / player
             shootCoolDown = shootingRate;
             var shotTransform = Instantiate(shotPrefab) as Transform;
+
+            //check who is shooting and set the position of the bullet
             if(gameObject.tag == "Boss1")
             {
                 shotTransform.position = new Vector3(transform.position.x - 10, transform.position.y + 25, transform.position.z);
             }
             else if (gameObject.tag == "Boss2")
             {
-                shotTransform.position = new Vector3(transform.position.x - 10, transform.position.y + 25, transform.position.z);
+                shotTransform.position = new Vector3(transform.position.x - 70, transform.position.y, transform.position.z);
             }
             else
             {
                 shotTransform.position = transform.position;
             }
-            
-
         }
     }
 }

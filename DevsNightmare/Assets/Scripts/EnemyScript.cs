@@ -5,14 +5,11 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     private WeaponScript weapon;
-
     private float explosionDuration = 1.0f;
- 
 
     // Start is called before the first frame update
     void Start()
     {
-
         weapon = GetComponent<WeaponScript>();
     }
 
@@ -23,12 +20,7 @@ public class EnemyScript : MonoBehaviour
         {
             weapon.Attack();
         }
-
     }
-
-
-
-
 }
 
 

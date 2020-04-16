@@ -11,6 +11,7 @@ public class PauseMenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // if the player press escape key , pause the game and displays the options 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (gameIsPaused)

@@ -5,15 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class PlayerScript : MonoBehaviour
 {
-
-
     //Speed of the spaceship
     public Vector2 speed = new Vector2(10, 10);
-
     //Movement of the spaceship
-
     private Rigidbody2D rb;
-
 
     void Start()
     {
@@ -25,6 +20,7 @@ public class PlayerScript : MonoBehaviour
     { 
         Move();
 
+        //if the player clicks the mouse with the left click, it shoots
         if (Input.GetButtonDown("Fire1"))
         {
             WeaponScript weapon = GetComponent<WeaponScript>();
@@ -45,14 +41,15 @@ public class PlayerScript : MonoBehaviour
         if (rb == null) rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(inputX * speed.x, inputY * speed.y);
 
+        //keeps the player inside the screen
         float yValue = Mathf.Clamp(rb.position.y, -70.0f, 100.0f);
         float xValue = Mathf.Clamp(rb.position.x, -25.0f, 390.0f);
         rb.position = new Vector2(xValue, yValue);
-
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        // checks if the player collide with the enemy and gives the appropriate damage
         if(collision.gameObject.tag == "Enemy1" || collision.gameObject.tag == "Enemy2")
         {
             var damagePlayer = false;
@@ -80,10 +77,9 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    //if the player is destroyed, loads the game over scrip 
     private void OnDestroy()
     {
         transform.parent.gameObject.AddComponent<GameOverScript>();
     }
-
-
 }

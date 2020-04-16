@@ -30,12 +30,7 @@ public class SoundsScript : MonoBehaviour
     public static SoundsScript FindSoundController()
     {
         SoundsScript sc = FindObjectOfType<SoundsScript>();
-        if (!sc)
-        {
-            Debug.LogWarning("Missing Sound Controller");
-        }
         return sc;
     }
-
 
 }

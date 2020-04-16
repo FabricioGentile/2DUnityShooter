@@ -11,7 +11,7 @@ public class BossMovementScript : MonoBehaviour
     public LevelLoaderScript lvl;
 
     [SerializeField]
-    private float speed;
+    private float speed = 0f;
 
     [SerializeField]
     private Transform childTransform;
@@ -31,6 +31,7 @@ public class BossMovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if the boss still alive, keeps moving, otherwise load next level
         if (GameObject.FindGameObjectWithTag("Boss1") != null || GameObject.FindGameObjectWithTag("Boss2") != null)
         {
             Move();
@@ -44,7 +45,7 @@ public class BossMovementScript : MonoBehaviour
 
     private void Move()
     {
-
+        //move towards the gameObject
         childTransform.localPosition = Vector3.MoveTowards(childTransform.localPosition, nextPos, speed * Time.deltaTime);
 
         if (Vector3.Distance(childTransform.localPosition, nextPos) <= 0.1)

@@ -7,17 +7,15 @@ public class LevelLoaderScript : MonoBehaviour
 {
     public Animator transition;
     public float transitionTime = 1f;
-
- 
+    
     public void LoadNextLevel()
     {
-        Debug.Log("tentando 1");
+        //load the next scene based on index 
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
     IEnumerator LoadLevel(int levelIndex)
     {
-        Debug.Log("tentando 2");
         //play animation
         transition.SetTrigger("Start");
 
