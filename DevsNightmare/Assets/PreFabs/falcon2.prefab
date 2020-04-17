@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 6701771400203135921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.191, y: 2.166, z: 2}
-  m_LocalScale: {x: 5.5, y: 6.5, z: 1.1017407}
+  m_LocalScale: {x: 0.31139788, y: 0.3680157, z: 0.062378135}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -165,6 +165,7 @@ MonoBehaviour:
   dieSound: {fileID: 8300000, guid: edaec71163dc9e64c8231b08afd7da06, type: 3}
   explosionFX: {fileID: 601033345308435064, guid: 20e13e4617de46846a359aa46dbf9403,
     type: 3}
+  healthBar: {fileID: 0}
   hp: 3
 --- !u!114 &486010146
 MonoBehaviour:
@@ -178,8 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08d5c229b2093e4092347d6867f7239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  speed: {x: 170, y: 170}
+  speed: {x: 15, y: 15}
 --- !u!82 &1940641278
 AudioSource:
   m_ObjectHideFlags: 0

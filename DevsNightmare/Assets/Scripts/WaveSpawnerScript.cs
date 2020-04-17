@@ -21,10 +21,12 @@ public class WaveSpawnerScript : MonoBehaviour
     private int nextWave = 0;
     public float timeBetweenWaves = 5f;
     private float waveCountDown;
-    private float searchCountDown = 1f;
+    private float timer;
+    private bool moreWaves = true;
     public LevelLoaderScript lvl;
     public Font font;
     private string wcd;
+    private string t;
     private GUIStyle guiStyle = new GUIStyle();
 
     public Transform[] spawPoints;
@@ -34,30 +36,49 @@ public class WaveSpawnerScript : MonoBehaviour
     void Start()
     {
         waveCountDown = timeBetweenWaves;
+        //set the timer for the level
+        if (SceneManager.GetActiveScene().name == "Level1")
+        {
+            timer = 85f;
+        }
+        else
+        {
+            timer = 100f;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        //start the timer
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            finalScore();
+        }
+
         if (state == SpawnState.WAITING)
         {
             //Begin a new round 
             WaveCompleted();
         }
-
-        if (waveCountDown <= 0)
+ 
+        if (moreWaves)
         {
-           if (state != SpawnState.SPAWNING)
+            if (waveCountDown <= 0)
             {
-                //start spawning wave
-                StartCoroutine(SpawnWave(waves[nextWave]));
+                if (state != SpawnState.SPAWNING)
+                {
+                    //start spawning wave
+                    StartCoroutine(SpawnWave(waves[nextWave]));
+                }
+            }
+            else
+            {
+                waveCountDown -= Time.deltaTime;
             }
         }
-        else
-        {
-            waveCountDown -= Time.deltaTime;
-        }
+ 
     }
 
     void WaveCompleted()
@@ -65,20 +86,10 @@ public class WaveSpawnerScript : MonoBehaviour
         state = SpawnState.COUTING;
         waveCountDown = timeBetweenWaves;
 
+        // if the number of the next wave is greater or equals to the length of waves, stop the spawning
         if (nextWave + 1 >= waves.Length )
         {
-            //
-            waveCountDown = 100000000f;
-            switch (ScoreScript.scoreValue)
-            {
-                case 200:
-                case 500:
-                    lvl.LoadNextLevel();
-                    break;
-                default:
-                    transform.gameObject.AddComponent<GameOverScript>();
-                    break;
-            }
+            moreWaves = false;
         }
         else
         {
@@ -108,6 +119,22 @@ public class WaveSpawnerScript : MonoBehaviour
         Instantiate(_enemy, _sp.position, _sp.rotation);   
     }
 
+    //checks if the player has enough score to pass the level
+    void finalScore()
+    {
+        switch (ScoreScript.scoreValue)
+        {
+            case 200:
+            case 700:
+                lvl.LoadNextLevel();
+                break;
+            default:
+                transform.gameObject.AddComponent<GameOverScript>();
+                break;
+        }
+    }
+
+
     private void OnGUI()
     {
         //check which leve is on and change the color to white or black
@@ -121,8 +148,11 @@ public class WaveSpawnerScript : MonoBehaviour
         }
         
         //displays the countdown in the screen
-        wcd = "Next wave: " + waveCountDown.ToString("n2"); 
+
+        wcd = "Next wave: " + waveCountDown.ToString("n2");
+        t = "Time: " + timer.ToString("n0");
         GUI.skin.font = font;
         GUI.Label(new Rect(Screen.width / 2, 5, 100, 200), wcd, guiStyle);
+        GUI.Label(new Rect(Screen.width / 4, 5, 100, 200), t, guiStyle);
     }
 }

@@ -41,11 +41,11 @@ public class WeaponScript : MonoBehaviour
             //check who is shooting and set the position of the bullet
             if(gameObject.tag == "Boss1")
             {
-                shotTransform.position = new Vector3(transform.position.x - 10, transform.position.y + 25, transform.position.z);
+                shotTransform.position = new Vector3(transform.position.x - 0.10f, transform.position.y + .25f, transform.position.z);
             }
             else if (gameObject.tag == "Boss2")
             {
-                shotTransform.position = new Vector3(transform.position.x - 70, transform.position.y, transform.position.z);
+                shotTransform.position = new Vector3(transform.position.x - 0.70f, transform.position.y, transform.position.z);
             }
             else
             {

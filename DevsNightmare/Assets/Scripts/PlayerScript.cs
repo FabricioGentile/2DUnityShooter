@@ -42,8 +42,8 @@ public class PlayerScript : MonoBehaviour
         rb.velocity = new Vector2(inputX * speed.x, inputY * speed.y);
 
         //keeps the player inside the screen
-        float yValue = Mathf.Clamp(rb.position.y, -70.0f, 100.0f);
-        float xValue = Mathf.Clamp(rb.position.x, -25.0f, 390.0f);
+        float yValue = Mathf.Clamp(rb.position.y, 6.0f, 18.0f);
+        float xValue = Mathf.Clamp(rb.position.x, 172.0f, 200.0f);
         rb.position = new Vector2(xValue, yValue);
     }
 
